@@ -1,0 +1,19 @@
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Send repo to Dataverse 
+        uses: IQSS/dataverse-uploader@v1.3
+        with:
+          DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
+          DATAVERSE_SERVER: https://abacus-staging.library.ubc.ca 
+          DATAVERSE_DATASET_DOI: hdl:11272/AB2/A9LWMW
+          GITHUB_DIR: publish 
+          PUBLISH: False 
