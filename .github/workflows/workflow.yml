@@ -15,5 +15,13 @@ jobs:
           DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
           DATAVERSE_SERVER: https://abacus-staging.library.ubc.ca 
           DATAVERSE_DATASET_DOI: hdl:11272/AB2/A9LWMW
-          GITHUB_DIR: publish 
+          GITHUB_DIR: publish/study1
+          PUBLISH: False 
+      - name: Send second study to another directory 
+        uses: IQSS/dataverse-uploader@v1.3
+        with:
+          DATAVERSE_TOKEN: ${{secrets.DATAVERSE_TOKEN}}
+          DATAVERSE_SERVER: https://abacus-staging.library.ubc.ca 
+          DATAVERSE_DATASET_DOI: hdl:11272/AB2/HKZ42E 
+          GITHUB_DIR: publish/study2
           PUBLISH: False 
